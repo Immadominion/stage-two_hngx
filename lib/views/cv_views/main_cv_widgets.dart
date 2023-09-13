@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_two/util/color_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+bool onHover = false;
+
 Widget myRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -18,15 +20,16 @@ Widget myRow() {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          headerText('Imma Dominion', 15.sp),
-          bodyText('Flutter Developer in Lagos,', 10.sp),
-          bodyText('Nigeria, He/Him', 10.sp),
+          headerText('SLACK: Imma Dominion', 11.sp),
+          bodyText('FULL NAME: Nwakanma Dominion C.', 7.sp),
+          bodyText('Flutter Developer in Lagos,', 7.sp),
+          bodyText('Nigeria, He/Him', 7.sp),
           GestureDetector(
             onTap: _launchURL,
             child: Container(
               decoration: BoxDecoration(
-                color: immaPurple.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(9.r),
+                color: immaPurple,
+                borderRadius: BorderRadius.circular(3.r),
               ),
               child: Padding(
                 padding: EdgeInsets.all(4.sp),
