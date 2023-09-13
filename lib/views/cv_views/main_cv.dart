@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_two/util/color_theme.dart';
-import 'package:stage_two/views/cv_views/cv_content_models.dart';
+import 'package:stage_two/views/cv_views/cv_about_models.dart';
+import 'package:stage_two/views/cv_views/cv_project_models.dart';
+import 'package:stage_two/views/cv_views/cv_work_models.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
 import 'package:stage_two/views/edit_views/main_edit.dart';
 

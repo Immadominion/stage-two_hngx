@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ProjectState(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => WorkExperienceState(),
+        ),
       ],
       builder: ((context, child) => MaterialApp(
             debugShowCheckedModeBanner: false,

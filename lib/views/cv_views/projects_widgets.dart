@@ -31,7 +31,7 @@ Widget projectColumn(String head, String body, String year) {
 }
 
 Widget workExperienceColumn(
-    String head, String body, String startYear, String endYear, location) {
+    String head, String body, String startYear, String workEndYear, location) {
   return Padding(
     padding: EdgeInsets.only(left: 20.sp),
     child: Column(
@@ -41,7 +41,7 @@ Widget workExperienceColumn(
           height: 10.h,
         ),
         dateText(
-          "From $startYear - $endYear",
+          "From $startYear - $workEndYear",
         ),
         SizedBox(
           height: 3.h,

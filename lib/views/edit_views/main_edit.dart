@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:stage_two/util/color_theme.dart';
 import 'package:stage_two/views/edit_views/edit_widgets.dart';
 import 'package:stage_two/views/edit_views/projects_edit_page.dart';
+import 'package:stage_two/views/edit_views/work_experience_edit_page.dart';
 
 class MainEditPage extends StatefulWidget {
   const MainEditPage({super.key});
@@ -81,6 +82,15 @@ class _MainEditPageState extends State<MainEditPage> {
                         height: 8.sp,
                       ),
                       GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) =>
+                                  const WorkExperienceEditPage()),
+                            ),
+                          );
+                        },
                         child: editMeText(
                           'Add Work Experiences',
                           Icons.work,
@@ -90,6 +100,14 @@ class _MainEditPageState extends State<MainEditPage> {
                         height: 8.sp,
                       ),
                       GestureDetector(
+                        onTap: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: immaPurple,
+                              content: Text("Non Functional Button"),
+                            ),
+                          );
+                        },
                         child: editMeText(
                           'About',
                           Icons.contact_emergency_outlined,
@@ -99,6 +117,14 @@ class _MainEditPageState extends State<MainEditPage> {
                         height: 8.sp,
                       ),
                       GestureDetector(
+                        onTap: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: immaPurple,
+                              content: Text("Non Functional Button"),
+                            ),
+                          );
+                        },
                         child: editMeText(
                           'Add Personal Details',
                           Icons.person,
@@ -108,6 +134,14 @@ class _MainEditPageState extends State<MainEditPage> {
                         height: 8.sp,
                       ),
                       GestureDetector(
+                        onTap: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: immaPurple,
+                              content: Text("Non Functional Button"),
+                            ),
+                          );
+                        },
                         child: editMeText(
                           'Add Skills',
                           Icons.balance_outlined,
