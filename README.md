@@ -19,4 +19,4 @@ To properly run this code, you need to have Flutter installed and running in you
 4. **Run "Dart pub get"**: Open a terminal and navigate to the project folder. Run the following command to get the needed packages from your Flutter Framework:
 
    ```bash
-   dart pub get
+   dart pub get 

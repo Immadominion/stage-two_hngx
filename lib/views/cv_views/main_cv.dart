@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_two/util/color_theme.dart';
 import 'package:stage_two/views/cv_views/cv_about_models.dart';
 import 'package:stage_two/views/cv_views/cv_project_models.dart';
@@ -16,17 +15,30 @@ class MainCV extends StatefulWidget {
   State<MainCV> createState() => _MainCVState();
 }
 
+late String ptitle;
+late String pyear;
+late String pdesc;
+
+late String wtitle;
+late String wkeytype;
+late String wdecription;
+late String wendyear;
+late String wlocation;
+
 class _MainCVState extends State<MainCV> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Scaffold(
+          key: _scaffoldKey,
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               '________',
               style: TextStyle(
-                fontSize: 10.sp,
+                fontSize: 20,
                 color: immaPurple,
               ),
             ),
@@ -38,26 +50,26 @@ class _MainCVState extends State<MainCV> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                myRow(),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10.w, 0, 10.w, 0),
+                myRow(context),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 10.h,
+                        height: 20,
                       ),
-                      const CVAboutModel(),
+                      CVAboutModel(),
                       SizedBox(
-                        height: 10.h,
+                        height: 20,
                       ),
-                      const CVProjectsModel(),
+                      CVProjectsModel(),
                       SizedBox(
-                        height: 10.h,
+                        height: 20,
                       ),
-                      const CVWorkExperienceModel(),
+                      CVWorkExperienceModel(),
                       SizedBox(
-                        height: 10.h,
+                        height: 20,
                       ),
                     ],
                   ),
@@ -67,8 +79,8 @@ class _MainCVState extends State<MainCV> {
           ),
         ),
         Positioned(
-          bottom: 35.h,
-          right: 10.h,
+          bottom: 35,
+          right: 20,
           child: FloatingActionButton(
             backgroundColor: immaPurple,
             heroTag: 'Edit CV',
@@ -82,9 +94,9 @@ class _MainCVState extends State<MainCV> {
                 );
               });
             },
-            child: Icon(
+            child: const Icon(
               Icons.edit_document,
-              size: 15.sp,
+              size: 14,
               color: immaWhite,
             ),
           ),

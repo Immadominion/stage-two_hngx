@@ -1,18 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:stage_two/logic/cv_provider.dart';
 import 'package:stage_two/model/cv_text.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
 import 'package:stage_two/views/cv_views/projects_widgets.dart';
 
 class CVProjectsModel extends StatefulWidget {
   const CVProjectsModel({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<CVProjectsModel> createState() => _CVProjectsModelState();
+  State<CVProjectsModel> createState() => CVProjectsModelState();
 }
 
 final projectWidgets = <Widget>[
@@ -38,22 +36,27 @@ final projectWidgets = <Widget>[
   )
 ];
 
-class _CVProjectsModelState extends State<CVProjectsModel> {
+class CVProjectsModelState extends State<CVProjectsModel> {
+  @override
+  void initState() {
+    projectWidgets;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10.w),
-          child: headerText('Projects', 10.sp),
+          padding: const EdgeInsets.only(left: 18),
+          child: headerText('Projects', 18.0),
         ),
         ListView.builder(
           shrinkWrap: true,
-          itemCount:
-              context.watch<ProjectState>().getLatestProjectWidgets.length,
+          itemCount: projectWidgets.length,
           itemBuilder: (context, index) {
-            return context.watch<ProjectState>().getLatestProjectWidgets[index];
+            return projectWidgets[index];
           },
         ),
       ],

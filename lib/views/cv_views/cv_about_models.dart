@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_two/model/cv_text.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
 
@@ -16,12 +15,12 @@ class CVAboutModel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10.w),
-          child: headerText('About', 10.sp),
+          padding: const EdgeInsets.only(left: 18),
+          child: headerText('About', 18.0),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 20.w, top: 10.h),
-          child: bodyText(aboutSection = aboutString, 8.sp),
+          padding: const EdgeInsets.only(left: 20, top: 18),
+          child: bodyText(aboutSection = aboutString, 14.0),
         )
       ],
     );

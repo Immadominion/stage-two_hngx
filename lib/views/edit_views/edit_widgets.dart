@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:stage_two/logic/cv_provider.dart';
 import 'package:stage_two/util/color_theme.dart';
+import 'package:stage_two/views/cv_views/main_cv.dart';
 import 'package:stage_two/views/edit_views/projects_edit_page.dart';
 import 'package:stage_two/views/edit_views/work_experience_edit_page.dart';
 
@@ -12,11 +10,11 @@ Row editMeText(String editWhat, icon) {
     children: [
       Text(
         editWhat,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'Monteserrat',
-          fontSize: 11.sp,
+          fontSize: 18,
           fontWeight: FontWeight.w700,
-          shadows: const <Shadow>[
+          shadows: <Shadow>[
             Shadow(color: immaBlack, blurRadius: 1),
           ],
         ),
@@ -24,7 +22,7 @@ Row editMeText(String editWhat, icon) {
       Icon(
         icon,
         color: immaWhite,
-        size: 13.sp,
+        size: 18,
         shadows: const <Shadow>[
           Shadow(color: immaBlack, blurRadius: 1),
         ],
@@ -37,7 +35,7 @@ TextFormField myTextAccess(
   String label,
   TextEditingController myAccessController,
   bool keyType,
-  maxLent,
+  int maxLent,
   bool title,
   bool desc,
   BuildContext context,
@@ -46,13 +44,13 @@ TextFormField myTextAccess(
     onChanged: (string) {
       if (title) {
         string = titleController.text;
-        context.read<ProjectState>().holdTitleText(string);
+        ptitle = string;
       } else if (keyType) {
         string = yearController.text;
-        context.read<ProjectState>().holdYearText(string);
+        pyear = string;
       } else if (desc) {
         string = descriptionController.text;
-        context.read<ProjectState>().holdDescriptionText(string);
+        pdesc = string;
       }
     },
     onEditingComplete: () {},
@@ -62,7 +60,7 @@ TextFormField myTextAccess(
     decoration: InputDecoration(
       labelText: label,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7.r),
+        borderRadius: BorderRadius.circular(7),
       ),
     ),
   );
@@ -83,21 +81,21 @@ TextFormField myWorkDescriptionAccess(
     onChanged: (string) {
       if (title) {
         string = workTitleController.text;
-        context.read<WorkExperienceState>().holdWorkTitleText(string);
+        wtitle = string;
       } else if (keyType) {
         string = startYearController.text;
-        context.read<WorkExperienceState>().holdStartYear(string);
+        wkeytype = string;
       } else if (desc) {
         string = workDescriptionController.text;
-        context.read<WorkExperienceState>().holdWorkDescription(string);
+        wdecription = string;
       }
       if (endYearType) {
         string = endYearController.text;
-        context.read<WorkExperienceState>().holdEndYear(string);
+        wendyear = string;
       }
       if (location) {
         string = locationController.text;
-        context.read<WorkExperienceState>().holdLocation(string);
+        wlocation = string;
       }
     },
     onEditingComplete: () {},
@@ -107,7 +105,7 @@ TextFormField myWorkDescriptionAccess(
     decoration: InputDecoration(
       labelText: label,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(7.r),
+        borderRadius: BorderRadius.circular(7),
       ),
     ),
   );

@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
 
 Widget projectColumn(String head, String body, String year) {
   return Padding(
-    padding: EdgeInsets.only(left: 20.sp),
+    padding: const EdgeInsets.only(left: 20),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 10.h,
+        const SizedBox(
+          height: 18,
         ),
         dateText(
           year,
         ),
-        SizedBox(
-          height: 3.h,
+        const SizedBox(
+          height: 3,
         ),
-        headerText(head, 10.sp),
-        SizedBox(
-          height: 3.h,
+        headerText(head, 18.0),
+        const SizedBox(
+          height: 3,
         ),
-        bodyText(body, 8.sp),
-        SizedBox(
-          height: 10.h,
+        bodyText(body, 14.0),
+        const SizedBox(
+          height: 18,
         ),
       ],
     ),
@@ -33,32 +32,32 @@ Widget projectColumn(String head, String body, String year) {
 Widget workExperienceColumn(
     String head, String body, String startYear, String workEndYear, location) {
   return Padding(
-    padding: EdgeInsets.only(left: 20.sp),
+    padding: const EdgeInsets.only(left: 20),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 10.h,
+        const SizedBox(
+          height: 18,
         ),
         dateText(
           "From $startYear - $workEndYear",
         ),
-        SizedBox(
-          height: 3.h,
+        const SizedBox(
+          height: 3,
         ),
-        headerText(head, 10.sp),
-        SizedBox(
-          height: 3.h,
+        headerText(head, 18),
+        const SizedBox(
+          height: 3,
         ),
         dateText(
           location,
         ),
-        SizedBox(
-          height: 3.h,
+        const SizedBox(
+          height: 3,
         ),
-        bodyText(body, 8.sp),
-        SizedBox(
-          height: 10.h,
+        bodyText(body, 14),
+        const SizedBox(
+          height: 18,
         ),
       ],
     ),

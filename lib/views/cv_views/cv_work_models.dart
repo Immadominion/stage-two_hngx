@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:stage_two/logic/cv_provider.dart';
 import 'package:stage_two/model/cv_text.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
 import 'package:stage_two/views/cv_views/projects_widgets.dart';
@@ -34,27 +31,28 @@ final workWidgets = <Widget>[
 
 class _CVWorkExperienceModelState extends State<CVWorkExperienceModel> {
   @override
+  void initState() {
+    workWidgets;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10.w),
+          padding: const EdgeInsets.only(left: 18),
           child: headerText(
             'Work Experience',
-            10.sp,
+            18.0,
           ),
         ),
         ListView.builder(
           shrinkWrap: true,
-          itemCount: context
-              .watch<WorkExperienceState>()
-              .getLatestWorkExperienceWidgets
-              .length,
+          itemCount: workWidgets.length,
           itemBuilder: (context, index) {
-            return context
-                .watch<WorkExperienceState>()
-                .getLatestWorkExperienceWidgets[index];
+            return workWidgets[index];
           },
         ),
       ],

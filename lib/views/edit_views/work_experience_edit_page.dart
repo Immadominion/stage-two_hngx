@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
-import 'package:stage_two/logic/cv_provider.dart';
+import 'package:stage_two/main.dart';
 import 'package:stage_two/util/color_theme.dart';
+import 'package:stage_two/views/cv_views/cv_project_models.dart';
+import 'package:stage_two/views/cv_views/cv_work_models.dart';
+import 'package:stage_two/views/cv_views/main_cv.dart';
 import 'package:stage_two/views/cv_views/main_cv_widgets.dart';
+import 'package:stage_two/views/cv_views/projects_widgets.dart';
 import 'package:stage_two/views/edit_views/edit_widgets.dart';
 
 class WorkExperienceEditPage extends StatefulWidget {
@@ -46,31 +50,31 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
       appBar: AppBar(
         title: headerText(
           'Work Experiences',
-          15.sp,
+          15.0,
         ),
       ),
       body: Center(
         child: Container(
-          padding: EdgeInsets.only(
-            top: 20.sp,
-            bottom: 20.sp,
+          padding: const EdgeInsets.only(
+            top: 20,
+            bottom: 20,
           ),
-          margin: EdgeInsets.all(10.sp),
-          decoration: BoxDecoration(
+          margin: const EdgeInsets.all(18),
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(
                 color: immaWhite,
-                width: 1.w,
+                width: 1,
               ),
             ),
           ),
           child: Card(
-            elevation: 5.sp,
+            elevation: 5,
             color: immaPurple,
             shadowColor: immaWhite.withOpacity(0.3),
             child: Center(
               child: Padding(
-                padding: EdgeInsets.only(left: 8.sp, right: 8.sp),
+                padding: const EdgeInsets.only(left: 8, right: 8),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -86,8 +90,8 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                         false,
                         false,
                       ),
-                      SizedBox(
-                        height: 10.sp,
+                      const SizedBox(
+                        height: 18,
                       ),
                       myWorkDescriptionAccess(
                         'Start Year*',
@@ -100,8 +104,8 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                         false,
                         false,
                       ),
-                      SizedBox(
-                        height: 10.sp,
+                      const SizedBox(
+                        height: 18,
                       ),
                       myWorkDescriptionAccess(
                         'End Year*',
@@ -114,8 +118,8 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                         true,
                         false,
                       ),
-                      SizedBox(
-                        height: 10.sp,
+                      const SizedBox(
+                        height: 18,
                       ),
                       myWorkDescriptionAccess(
                         'Location*',
@@ -128,8 +132,8 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                         false,
                         true,
                       ),
-                      SizedBox(
-                        height: 10.sp,
+                      const SizedBox(
+                        height: 18,
                       ),
                       myWorkDescriptionAccess(
                         'Description',
@@ -144,10 +148,24 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          context
-                              .read<WorkExperienceState>()
-                              .saveWorkExperienceToList();
-                          Navigator.pop(context);
+                          setState(() {
+                            workWidgets.add(
+                              workExperienceColumn(wtitle, wdecription,
+                                  wkeytype, wendyear, wlocation),
+                            );
+                          });
+                          navigatorKey.currentState
+                              ?.popUntil((route) => route.isFirst);
+                          Timer(
+                            const Duration(milliseconds: 15000),
+                            () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainCV()),
+                              );
+                            },
+                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               backgroundColor: immaPurple,
@@ -157,18 +175,18 @@ class _WorkExperienceEditPageState extends State<WorkExperienceEditPage> {
                           );
                         },
                         child: Container(
-                          height: 30.h,
-                          width: 80.w,
+                          height: 50,
+                          width: 100,
                           decoration: BoxDecoration(
                             color: immaGray,
-                            borderRadius: BorderRadius.circular(8.r),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Done',
                               style: TextStyle(
                                 fontFamily: 'Monteserrat',
-                                fontSize: 10.sp,
+                                fontSize: 17,
                               ),
                             ),
                           ),

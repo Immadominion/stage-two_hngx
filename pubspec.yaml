@@ -34,11 +34,8 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  flutter_screenutil: ^5.9.0
-  provider: ^6.0.5
-  url_launcher: ^6.1.14
-  lottie: ^2.6.0
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +63,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/animation/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -83,23 +80,4 @@ flutter:
     - family: Monteserrat
       fonts:
         - asset: assets/fonts/static/Montserrat-Black.ttf
-        - asset: assets/fonts/static/Montserrat-BlackItalic.ttf
-        - asset: assets/fonts/static/Montserrat-Bold.ttf
-        - asset: assets/fonts/static/Montserrat-BoldItalic.ttf
-        - asset: assets/fonts/static/Montserrat-ExtraBold.ttf
-        - asset: assets/fonts/static/Montserrat-ExtraBoldItalic.ttf
-        - asset: assets/fonts/static/Montserrat-ExtraLight.ttf
-        - asset: assets/fonts/static/Montserrat-ExtraLightItalic.ttf
-        - asset: assets/fonts/static/Montserrat-Italic.ttf
-        - asset: assets/fonts/static/Montserrat-Light.ttf
-        - asset: assets/fonts/static/Montserrat-LightItalic.ttf
-        - asset: assets/fonts/static/Montserrat-Medium.ttf
-        - asset: assets/fonts/static/Montserrat-MediumItalic.ttf
-        - asset: assets/fonts/static/Montserrat-Regular.ttf
-        - asset: assets/fonts/static/Montserrat-SemiBold.ttf
-        - asset: assets/fonts/static/Montserrat-SemiBoldItalic.ttf
-        - asset: assets/fonts/static/Montserrat-Thin.ttf
-        - asset: assets/fonts/static/Montserrat-ThinItalic.ttf
-        - asset: assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
-        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
 
